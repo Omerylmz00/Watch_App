@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:watch_store_app/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:watch_store_app/splash.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(const MainApp());
 }
 
@@ -15,12 +18,10 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: primaryColor,
+        textTheme: GoogleFonts.playfairDisplayTextTheme(Theme.of(context).textTheme),
         hintColor: accentColor,
       ),
-      home: Container(
-        color: Colors.amber,
-        child: Image.asset('assets/images/patek_1.jpg'),
-      ),
+      home: const SplashScreen(),
     );
   }
 }
